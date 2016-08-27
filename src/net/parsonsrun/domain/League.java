@@ -46,7 +46,7 @@ public class League extends NamedDomainObject
 		}
 		boolean first = true;		
 		StringBuilder sb = new StringBuilder();
-		sb.append("Current standings:");
+		sb.append("<b>Current standings:</b>");
 		sb.append("<br>");
 		sb.append("<table style='width: 100%' border=1>");
 		sb.append("<tr><td align='center'>Position</td><td>Team Name</td><td align='center'>W-L [SW:GW]</td><td align='center'>Win %</td><td align='center'>Played</td></tr>");
@@ -67,14 +67,29 @@ public class League extends NamedDomainObject
 				sb.append(m.getFullHtml());
 			}
 		}
+		Date nextWeek = new Date(d.getTime() + (3*24*60*60*1000)); 
 		for (Team t : getTeams())
 		{
-			ArrayList<Match> unplayed = t.getUnplayedVsMatches(this);
-			
+			StringBuilder s = new StringBuilder();
+			s.append("<b>Report for:</b> ");
+			s.append(t.getFullName());
+			s.append("<br><br>");
+			for (Match m : t.getUnplayedVsMatches(this))
+			{
+				VsMatch v = (VsMatch)m;
+				if (m.isMatchFor(nextWeek))
+				{
+					s.append("<b>Upcoming match for ");
+					s.append(m.getRound().getName());
+					s.append(" vs:</b> ");
+					s.append(v.getOtherSide().getFullName());
+					s.append("<br><br>");
+				}
+			}
 			ArrayList<String> to = new ArrayList<String>();
 			to.add(t.getPlayerA().getEmail());
 			to.add(t.getPlayerB().getEmail());
-			P2tennisv2UI.sendEmail(to, "Weekly update for " + getName() + " " + current, sb.toString());
+			P2tennisv2UI.sendEmail(to, "Weekly update for " + getName() + " " + current, s.toString() + sb.toString());
 		}
 	}
 	

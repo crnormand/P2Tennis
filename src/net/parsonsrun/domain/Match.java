@@ -477,6 +477,11 @@ public class Match extends DomainObject
 		return sb.toString();
 	}
 	
+	public boolean isMatchFor(Date d)
+	{
+		return getRound().isRoundFor(d);
+	}
+	
 	public String getDescription()
 	{	
 		return getDescription(showElo());

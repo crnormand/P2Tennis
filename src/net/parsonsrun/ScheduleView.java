@@ -287,8 +287,9 @@ public class ScheduleView extends BaseView
 	{
 		 getCurrentLeague().recalculate(); 
 		 Notification.show("League scores recalculated");
-		 for (Player p : getHood().getPlayers())
-			 System.out.println(p.firstLastName() + " = " + p.showElo() + " pw:" + p.getPassword());
+//		 getCurrentLeague().closeOutWeek(new Date(116,7,28));
+//		 for (Player p : getHood().getPlayers())
+//			 System.out.println(p.firstLastName() + " = " + p.showElo() + " pw:" + p.getPassword());
 	}
 	
 	protected void showComment()

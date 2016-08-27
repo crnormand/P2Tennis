@@ -137,8 +137,8 @@ public class P2tennisv2UI extends UI
 		try
 		{
 			HtmlEmail email = newEmail(s, m);
-			for (String t : to)
 //			String t= "crnormand@bellsouth.net";
+			for (String t : to)
 				email.addTo(t);
 			if (cc != null)
 				for (String c : cc)

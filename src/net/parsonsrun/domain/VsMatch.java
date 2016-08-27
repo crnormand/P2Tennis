@@ -155,7 +155,7 @@ public class VsMatch extends Match
 		return s.toString();
 	}
 
-	protected Side getOtherSide()
+	public Side getOtherSide()
 	{
 		if (getMatch().getSideA().equals(getMe()))
 			return getMatch().getSideB();

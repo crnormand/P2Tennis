@@ -56,7 +56,10 @@ public class Round extends NamedDomainObject
 		int startd = Integer.parseInt(start[1]);
 		int endm = Integer.parseInt(end[0]);
 		int endd = Integer.parseInt(end[1]);
-		return startm <= mon && startd <= day && endm >= mon && endd >= day;
+		if (startm == mon && endm == mon)
+			return (startd <= day && endd >= day);
+		else
+			return (startm == mon && startd <= day) || (endm == mon && endd >= day);
 	}
 
 	public ArrayList<Match> getMatches()
