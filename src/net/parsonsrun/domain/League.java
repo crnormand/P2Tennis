@@ -71,7 +71,7 @@ public class League extends NamedDomainObject
 		for (Team t : getTeams())
 		{
 			StringBuilder s = new StringBuilder();
-			s.append("<b>Report for: </b>");
+			s.append("<b>Report for:</b> ");
 			s.append(t.getFullName());
 			s.append("<br><br>");
 			for (Match m : t.getUnplayedVsMatches(this))
@@ -81,7 +81,7 @@ public class League extends NamedDomainObject
 				{
 					s.append("<b>Upcoming match for ");
 					s.append(m.getRound().getName());
-					s.append(" vs: </b>");
+					s.append(" vs:</b> ");
 					s.append(v.getOtherSide().getFullName());
 					s.append("<br><br>");
 				}
