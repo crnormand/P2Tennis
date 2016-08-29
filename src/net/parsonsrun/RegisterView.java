@@ -165,7 +165,7 @@ public class RegisterView extends BaseView
 	
 	protected void create()
 	{
-		if (pass.getValue().isEmpty())
+		if (pass.getValue().isEmpty() && !getLoginUser().isAdmin())
 		{
 			Notification.show("You MUST enter a Password.", Type.WARNING_MESSAGE);
 			return;

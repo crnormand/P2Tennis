@@ -106,7 +106,7 @@ public class Player extends DomainObject implements Comparable<Player>
 	
 	public boolean isInValid()
 	{
-		return getFirst().isEmpty() || getLast().isEmpty() || getEmail().isEmpty() || getPassword().isEmpty();
+		return getFirst().isEmpty() || getLast().isEmpty() || getEmail().isEmpty(); //  || getPassword().isEmpty();
 	}
 	
 	public void debugOut(StringBuilder sb)
